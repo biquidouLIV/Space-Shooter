@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AutoMove : MonoBehaviour
@@ -8,4 +9,5 @@ public class AutoMove : MonoBehaviour
     {
         GetComponent<Rigidbody>().linearVelocity = direction * speed;
     }
+
 }

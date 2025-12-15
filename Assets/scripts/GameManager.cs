@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject gameOverUI;
     [SerializeField] GameObject pauseUI;
-    [SerializeField] GameObject pauseButton;
+
+    private bool isGamePaused;
 
     private void Awake()
     {
@@ -26,6 +28,15 @@ public class GameManager : MonoBehaviour
         }
  */
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
     public void NextLevel()
     {
         int n = SceneManager.GetActiveScene().buildIndex;
@@ -35,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void RetryLevel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
 
@@ -52,16 +63,21 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0;
-        pauseUI.SetActive(true);
-        pauseButton.SetActive(false);
+        isGamePaused = !isGamePaused;
 
-    }
-
-    public void Resume()
-    {
-        Time.timeScale = 1;
-        pauseUI.SetActive(false);
-        pauseButton.SetActive(true);
+        if (isGamePaused)
+        {
+            if (gameOverUI.activeSelf)
+            {
+                return;
+            }
+            Time.timeScale = 0;
+            pauseUI.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pauseUI.SetActive(false);
+        }
     }
 }

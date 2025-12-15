@@ -1,39 +1,60 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AsteroidManager : MonoBehaviour
 {
     [SerializeField] GameObject asteroid1;
     [SerializeField] GameObject asteroid2;
     [SerializeField] GameObject asteroid3;
+    [SerializeField] GameObject shieldCollectible;
     [SerializeField] GameObject AsteroidSpawner;
     
     [SerializeField] float spawnDelay = 1f;
     float lastAsteroidSpawn;
 
-    float a;
-  
+    private void Start()
+    {
+        StartCoroutine(IncreasingDifficulty());
+    }
+
     void Update()
     {
         if (Time.time - spawnDelay > lastAsteroidSpawn)
         {
-            a = Random.value;
+            float a = Random.value;
+            switch (a)
+            {
+                
+                case > 0.97f:
+                    Instantiate(shieldCollectible, AsteroidSpawner.transform.position, Quaternion.identity);
+                    break;
+                case > 0.66f:
+                    Instantiate(asteroid1, AsteroidSpawner.transform.position, Quaternion.identity);
+                    break;
+        
+                case > 0.33f:
+                    Instantiate(asteroid2, AsteroidSpawner.transform.position, Quaternion.identity);
+                    break;
 
-            if (a <= 0.4f)
-            {
-                Instantiate(asteroid1, AsteroidSpawner.transform.position, Quaternion.identity);
-            }
-            else if (a >=0.8f)
-            {
-                Instantiate(asteroid2, AsteroidSpawner.transform.position, Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(asteroid3, AsteroidSpawner.transform.position, Quaternion.identity);
+                default:
+                    Instantiate(asteroid3, AsteroidSpawner.transform.position, Quaternion.identity);
+                    break;
+
             }
 
             Vector3 asteroidPosition = new Vector3(Random.Range(4, -4), 0, gameObject.transform.position.z);
             transform.position = asteroidPosition;
             lastAsteroidSpawn = Time.time;
         }
+    }
+    
+    private IEnumerator IncreasingDifficulty()
+    {
+        spawnDelay = spawnDelay - 0.05f;
+        Debug.Log(spawnDelay);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(IncreasingDifficulty());
     }
 }

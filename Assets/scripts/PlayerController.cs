@@ -1,8 +1,14 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
+    static public PlayerController instance;
+
+    public bool isShieldActive = false;
+    
     float horizontalInput;
     float verticalInput;
     
@@ -12,12 +18,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float xLimitRight;
     [SerializeField] float zLimitUp;
     [SerializeField] float zLimitDown;
-
     [SerializeField] GameObject laserPrefab;
     [SerializeField] GameObject LaserSpawn;
+    [SerializeField] GameObject shield;
+    
 
     [SerializeField] float fireDelay = 5f;
     float lastShotTime;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -54,5 +66,20 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().Play();
             lastShotTime = Time.time;
         }
+        
+        Shield();
+    }
+
+    private void Shield()
+    {
+        if (isShieldActive)
+        {
+            shield.SetActive(true);
+        }
+        else
+        {
+            shield.SetActive(false);
+        }
+        
     }
 }

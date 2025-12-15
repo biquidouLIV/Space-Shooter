@@ -8,10 +8,11 @@ public class CollisionDetection : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(collision.gameObject);
+        
 
         if (collision.gameObject.tag == "laser")
         {
+            Destroy(collision.gameObject);
             Destroy(gameObject);
             Instantiate(asteroidExplosionVFX, transform.position, Quaternion.identity);
             GameManager.instance.ScoreUpdate();
@@ -20,9 +21,19 @@ public class CollisionDetection : MonoBehaviour {
 
         else if (collision.gameObject.tag =="Player")
         {
+            if (PlayerController.instance.isShieldActive)
+            {
+                PlayerController.instance.isShieldActive = false;
+                
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+
+                Instantiate(PlayerExplosionVFX, transform.position, Quaternion.identity);
+                GameManager.instance.GameOver();
+            }
             Destroy(gameObject);
-            Instantiate(PlayerExplosionVFX, transform.position, Quaternion.identity);
-            GameManager.instance.GameOver();
         }
 
       
