@@ -9,6 +9,7 @@ public class Shield : MonoBehaviour
         if (other.gameObject.tag == "asteroid")
         {
             Destroy(other.gameObject);
+            PlayerController.instance.isShieldActive = false;
             gameObject.SetActive(false);
         }
 

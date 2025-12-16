@@ -9,7 +9,6 @@ public class CollisionDetection : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         
-
         if (collision.gameObject.tag == "laser")
         {
             Destroy(collision.gameObject);
@@ -24,7 +23,6 @@ public class CollisionDetection : MonoBehaviour {
             if (PlayerController.instance.isShieldActive)
             {
                 PlayerController.instance.isShieldActive = false;
-                
             }
             else
             {
@@ -35,9 +33,8 @@ public class CollisionDetection : MonoBehaviour {
             }
             Destroy(gameObject);
         }
-
-      
     }
+
 
 
 }

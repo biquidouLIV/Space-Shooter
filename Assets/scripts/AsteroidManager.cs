@@ -5,9 +5,7 @@ using Random = UnityEngine.Random;
 
 public class AsteroidManager : MonoBehaviour
 {
-    [SerializeField] GameObject asteroid1;
-    [SerializeField] GameObject asteroid2;
-    [SerializeField] GameObject asteroid3;
+    [SerializeField] GameObject oiseau;
     [SerializeField] GameObject shieldCollectible;
     [SerializeField] GameObject AsteroidSpawner;
     
@@ -30,16 +28,8 @@ public class AsteroidManager : MonoBehaviour
                 case > 0.97f:
                     Instantiate(shieldCollectible, AsteroidSpawner.transform.position, Quaternion.identity);
                     break;
-                case > 0.66f:
-                    Instantiate(asteroid1, AsteroidSpawner.transform.position, Quaternion.identity);
-                    break;
-        
-                case > 0.33f:
-                    Instantiate(asteroid2, AsteroidSpawner.transform.position, Quaternion.identity);
-                    break;
-
                 default:
-                    Instantiate(asteroid3, AsteroidSpawner.transform.position, Quaternion.identity);
+                    Instantiate(oiseau, AsteroidSpawner.transform.position, Quaternion.identity);
                     break;
 
             }
@@ -52,7 +42,7 @@ public class AsteroidManager : MonoBehaviour
     
     private IEnumerator IncreasingDifficulty()
     {
-        spawnDelay = spawnDelay - 0.05f;
+        spawnDelay = spawnDelay * 0.90f;
         Debug.Log(spawnDelay);
         yield return new WaitForSeconds(5);
         StartCoroutine(IncreasingDifficulty());

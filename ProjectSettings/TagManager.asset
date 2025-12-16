@@ -8,6 +8,8 @@ TagManager:
   - Undefined
   - laser
   - asteroid
+  - nuke
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -15,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - laser
+  - player
+  - asteroid
   - 
   - 
   - 
