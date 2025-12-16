@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void GameOver()
     {
         gameOverUI.SetActive(true);

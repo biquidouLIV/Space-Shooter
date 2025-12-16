@@ -29,7 +29,7 @@ public class AsteroidManager : MonoBehaviour
                 case > 0.97f:
                     Instantiate(shieldCollectible, AsteroidSpawner.transform.position, Quaternion.identity);
                     break;
-                case > 0.30f:
+                case > 0.96f:
                     Instantiate(poisson, AsteroidSpawner.transform.position, Quaternion.identity);
                     break;
                 default:
