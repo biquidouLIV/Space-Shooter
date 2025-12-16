@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class AsteroidManager : MonoBehaviour
 {
     [SerializeField] GameObject oiseau;
+    [SerializeField] GameObject poisson;
     [SerializeField] GameObject shieldCollectible;
     [SerializeField] GameObject AsteroidSpawner;
     
@@ -27,6 +28,9 @@ public class AsteroidManager : MonoBehaviour
                 
                 case > 0.97f:
                     Instantiate(shieldCollectible, AsteroidSpawner.transform.position, Quaternion.identity);
+                    break;
+                case > 0.30f:
+                    Instantiate(poisson, AsteroidSpawner.transform.position, Quaternion.identity);
                     break;
                 default:
                     Instantiate(oiseau, AsteroidSpawner.transform.position, Quaternion.identity);

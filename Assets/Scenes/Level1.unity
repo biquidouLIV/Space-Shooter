@@ -2194,6 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oiseau: {fileID: 8320255727527488623, guid: b2d5b9cbc2ce1c148b7c65e4c8880791, type: 3}
+  poisson: {fileID: 2453708603775428798, guid: c20bcd7a8db409742b0eca16101c9439, type: 3}
   shieldCollectible: {fileID: 8708668795349910832, guid: 6c48b0e266f5ef24591d51518966b146, type: 3}
   AsteroidSpawner: {fileID: 814373679}
   spawnDelay: 1
