@@ -34,6 +34,8 @@ public class CollisionDetection : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+    
+    
 
 
 

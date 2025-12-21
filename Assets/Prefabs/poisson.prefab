@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac11dd6062a9a024599de8e9645c97cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidExplosionVFX: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  asteroidExplosionVFX: {fileID: 6696808211412970793, guid: 69212653799ae7f4db51c7f73c170da3, type: 3}
   PlayerExplosionVFX: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
 --- !u!54 &6764437396206644187
 Rigidbody:

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5421298653827184396}
   - component: {fileID: 9016646346688633868}
   m_Layer: 0
-  m_Name: mort_oiseau
+  m_Name: mort_poisson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4838,7 +4838,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc92c818e45882f4cae6923fc45f71da, type: 2}
+  - {fileID: 2100000, guid: 7706a50319189f64684a559d104cea3b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
